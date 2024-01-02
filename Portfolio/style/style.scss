@@ -1,0 +1,497 @@
+$base-font-family: 'Epilogue';
+$base-font-weight: 600;
+$background-color: #fff;
+/* Common styles */
+%common-styles {
+  color: var(--Black, #2D2D2D);
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+}
+* {
+    box-sizing: border-box;
+  }
+  @mixin phone{
+    @media only screen and (max-width: 700px){
+      @content;
+    }
+  }
+  @mixin center{
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    background-color: $background-color;
+  }
+/* Navigation */
+nav {
+  @include center;
+  height: 80px;
+  padding: 25px 50px;
+  align-items: flex-start;
+  gap: 870px;
+
+  .nav-logo {
+    @extend %common-styles;
+    display: flex;
+    width: 49px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+
+    .logo-text {
+      @extend %common-styles;
+      font-size: 20px;
+      line-height: 30px;
+    }
+    @include phone {
+      &::before {
+        content: url('../assets/hero/Menu.svg');
+        margin-right: 10px; 
+      }
+    }
+  }
+
+  .nav-menu {
+    @extend %common-styles;
+    display: flex;
+    width: 261px;
+    height: 28px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .about,
+    .work,
+    .contact {
+      font-size: 17px;
+      line-height: 28px;
+      @include phone {
+        display: none;
+      }
+    }
+   
+  }
+  
+}
+
+/* Header */
+header {
+  @include center;
+  padding: 100px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .header-content {
+    @extend %common-styles;
+    display: flex;
+    width: 1080px;
+    align-items: center;
+    gap: 28px;
+
+    .portfolio-header {
+      @extend %common-styles;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+
+      .headline {
+        @extend %common-styles;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+
+        .brand {
+          width: 557px;
+          font-size: 20px;
+          line-height: 30px;
+        }
+
+        .portfolio-title {
+          width: 557px;
+          font-size: 80px;
+          line-height: 90px;
+        }
+      }
+
+      .text {
+        font-size: 17px;
+        line-height: 27px;
+      }
+    }
+
+    .hero-image {
+      width: 495px;
+      height: 424px;
+      flex-shrink: 0;
+    }
+  } 
+}
+
+/* Logo Section */
+.logo-section {
+  @extend %common-styles;
+  @include center;
+  padding: 0px 66px;
+  align-items: center;
+  gap: 10px;
+
+  .logos {
+    @extend %common-styles;
+    display: flex;
+    width: 1078px;
+    padding: 60px 0px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-top: 2px solid rgba(0, 0, 0, 0.20);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.20);
+
+    .logo {
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  @include phone{
+    .logos{
+      display: flex;
+      flex-wrap: wrap;
+      
+    }
+  }
+}
+
+
+/* Skill Section */
+.skill-section {
+    @extend %common-styles;
+    @include center;
+    padding: 180px 140px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  
+    .skill-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 80px;
+    }
+  
+    .skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 56px;
+  
+      .skill-image {
+        width: 130px;
+        height: 130px;
+      }
+  
+      .skill-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 19px;
+  
+        .skill-title,
+        .skill-description {
+          text-align: center;
+          width: 249.899px;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 27px;
+  
+          &.skill-title {
+           
+            font-size: 27px;
+            font-weight: 600;
+            line-height: 42px;
+          }
+        }
+      }
+    }
+  }
+  
+/* Latest Work */
+.latest-work {
+    @extend %common-styles;
+    @include center;
+    padding: 20px 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+  
+    .latestwork-title {
+      @extend %common-styles;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 42px;
+    }
+  
+    .work-container {
+      @extend %common-styles;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      gap: 60px;
+  
+      .work-card {
+        @extend %common-styles;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+  
+        .card-image {
+          width: 315px;
+          height: 315px;
+        }
+  
+        .card-content {
+          @extend %common-styles;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+  
+          .card-title,
+          .card-description {
+            width: 315px;
+            font-size: 20px; 
+            font-weight: 600;
+            line-height: 30px;
+          }
+  
+          .card-description {
+            font-size: 17px; 
+            font-weight: 400;
+            line-height: 27px;
+          }
+        }
+      }
+    }
+  }
+  
+
+/* Client Section */
+.client-section {
+    @extend %common-styles;
+    @include center;
+    padding: 100px 100px 150px 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  
+    .client-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 55px;
+  
+      .client-container-title {
+        width: 113px;
+        height: 26.979px;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+      }
+  
+      .client-card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 67.5px;
+  
+        .client-card {
+          display: flex;
+          width: 315px;
+          padding: 30px 50px 30px 30px;
+          align-items: flex-start;
+          gap: 10px;
+  
+          .client-card-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 80px;
+            align-self: stretch;
+  
+            .client-work-description {
+              width: 263px;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 30px;
+            }
+  
+            .client-info {
+              display: flex;
+              align-items: flex-start;
+              gap: 20px;
+  
+              .client-image {
+                width: 50px;
+                height: 50px;
+                border-radius: 100px;
+                border: 1px solid #D8D8D8;
+              }
+  
+              .rate {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+  
+                .rate-stars {
+                  display: flex;
+                  align-items: flex-start;
+                  gap: 5px;
+  
+                  .star {
+                    width: 20px;
+                    height: 21px;
+                    position: relative;
+  
+                    &:before {
+                      content: '\2605';
+                      position: absolute;
+                      color: #2D2D2D;
+                    }
+                  }
+                }
+  
+                .rate-text {
+                  width: 193px;
+                  font-size: 17px;
+                  font-style: normal;
+                  font-weight: 400;
+                  line-height: 27px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+
+/* Footer */
+footer {
+  @extend %common-styles;
+  @include center;
+  padding: 0px 100px 70px 100px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+
+  .footer-info {
+    @extend %common-styles;
+    display: flex;
+    padding-top: 70px;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
+    border-top: 2px solid rgba(0, 0, 0, 0.20);
+
+    .main-info {
+      @extend %common-styles;
+      display: flex;
+      align-items: flex-start;
+      gap: 190px;
+
+      .contact-info {
+        @extend %common-styles;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 60px;
+
+        .footer-message {
+          @extend %common-styles;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 40px;
+
+          .message-title {
+            width: 360px;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 42px;
+          }
+
+          .message-description {
+            font-family: Epilogue;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 27px;
+          }
+        }
+
+        .social {
+          width: 232px;
+          height: 36px;
+
+          .icon {
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      .contact-form {
+        @extend %common-styles;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+
+        .text-feild {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 20px;
+
+          .input-field {
+            display: flex;
+            width: 530px;
+            padding: 21px 30px;
+            align-items: flex-start;
+            gap: 10px;
+          }
+        }
+
+        .submit-button {
+          display: flex;
+          padding: 25px 82px;
+          align-items: flex-start;
+          gap: 10px;
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+    @include phone{
+      .main-info{
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+
+  
+
